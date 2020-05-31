@@ -78,5 +78,5 @@ module.exports = {
     addNote,
     removeNote,
     listNotes,
-    searchNote
+    searchNote,
 }

@@ -64,6 +64,4 @@ yargs.command(
         utilsNotes.searchNote(argv.title);
     }
 )
-
-
 yargs.parse();
