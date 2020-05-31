@@ -1,9 +1,9 @@
 const fs = require('fs')
 
-const addNote = function (title, body) {
+const addNote = (title, body) => {
     const notes = loadNotes();
 
-    const array = notes.filter(function (note) {
+    const array = notes.filter((note) => {
         return note.title === title
     })
 
@@ -23,7 +23,7 @@ const addNote = function (title, body) {
     
 }
 
-const removeNote = function(title) {
+const removeNote = (title) => {
     const notes = loadNotes();
     var newNotes = [];
     for(var i = 0; i < notes.length; i ++) {
@@ -31,7 +31,7 @@ const removeNote = function(title) {
             newNotes.push(notes[i]);
         }
     }
-    if(newNotes.length == notes.length) {
+    if(newNotes.length === notes.length) {
         console.log('No such note found');
     } else {
         saveNotes(newNotes);
@@ -42,12 +42,10 @@ const removeNote = function(title) {
 
 const listNotes = function() {
     const notes = loadNotes();
-
     console.log(notes);
-    
 }
 
-const searchNote = function(title) {
+const searchNote = (title) => {
     const notes = loadNotes();
     var flag = 0;
     for(var i = 0; i < notes.length; i ++) {
@@ -63,7 +61,7 @@ const searchNote = function(title) {
     }
 }
 
-const loadNotes = function () {
+const loadNotes = () => {
     try {
         const dataJSON = JSON.parse(fs.readFileSync('notes.json').toString());
         return dataJSON;
@@ -72,7 +70,7 @@ const loadNotes = function () {
     }
 } 
 
-const saveNotes = function(notes) {
+const saveNotes = (notes) => {
     fs.writeFileSync('notes.json', JSON.stringify(notes));
 }
 

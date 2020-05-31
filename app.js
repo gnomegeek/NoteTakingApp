@@ -18,7 +18,7 @@ yargs.command(
             type: String
         }
     },
-    function () {
+    () => {
         utilsNotes.addNote(argv.title, argv.body)
     }
 )
@@ -34,7 +34,7 @@ yargs.command(
             type: String,
         }
     },
-    function () {
+    () => {
         utilsNotes.removeNote(argv.title);
     }
 )
@@ -45,7 +45,7 @@ yargs.command(
     "list",
     "Listing all nodes",
     {},
-    function () {
+    () => {
         utilsNotes.listNotes();
     }
 )
@@ -60,7 +60,7 @@ yargs.command(
             type: String,
         }
     },
-    function () {
+    () => {
         utilsNotes.searchNote(argv.title);
     }
 )
