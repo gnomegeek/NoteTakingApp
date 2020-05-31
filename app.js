@@ -46,7 +46,7 @@ yargs.command(
     "Listing all nodes",
     {},
     function () {
-        console.log(argv);
+        utilsNotes.listNotes();
     }
 )
 
@@ -61,7 +61,7 @@ yargs.command(
         }
     },
     function () {
-        console.log(argv);
+        utilsNotes.searchNote(argv.title);
     }
 )
 

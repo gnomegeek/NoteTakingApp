@@ -39,12 +39,36 @@ const removeNote = function(title) {
     }
 }
 
+
+const listNotes = function() {
+    const notes = loadNotes();
+
+    console.log(notes);
+    
+}
+
+const searchNote = function(title) {
+    const notes = loadNotes();
+    var flag = 0;
+    for(var i = 0; i < notes.length; i ++) {
+        if(notes[i].title === title) {
+            console.log(`${notes[i].title} ${notes[i].body}`);
+            flag = 1;
+            break;
+        }
+    }
+
+    if(flag === 0) {
+        console.log("No such Note found");
+    }
+}
+
 const loadNotes = function () {
     try {
-        const dataJSON = JSON.parse(fs.readFileSync('notes.json').toString())
+        const dataJSON = JSON.parse(fs.readFileSync('notes.json').toString());
         return dataJSON;
     } catch (error) {
-        return []
+        return [];
     }
 } 
 
@@ -55,4 +79,6 @@ const saveNotes = function(notes) {
 module.exports = {
     addNote,
     removeNote,
+    listNotes,
+    searchNote
 }
